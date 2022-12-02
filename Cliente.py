@@ -1,14 +1,13 @@
 class Cliente:
     def __init__(self, nome, idade, tel):
 
-        self.nome = nome
+        self._nome = nome
         self.idade = idade
-        self._tel = tel
+        self.tel = tel
 
-    #Método GET
-    def get_tel(self):
-        return self._tel     
 
-    #Método SET
-    def set_tel(self, tel):
-        self._tel = tel
+    def get_nome(self):
+        return self._nome
+
+    def set_nome(self, nome):
+        self._nome = nome

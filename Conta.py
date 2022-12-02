@@ -2,16 +2,24 @@ class Conta:
     def __init__(self, titular, id, saldo):
         self.titular = titular
         self.id = id
-        self._saldo = saldo
+        self.saldo = saldo
 
-    #Método GET
-    def get_saldo(self):
-        return self._saldo
-    
-    #Método SET
-    def set_saldo(self, saldo):
-        if saldo < 0:
-            return ("O valor de saldo não pode ser negativo")
+    def saque(self, valor):
+        if self.saldo >= valor:
+            self.saldo -= valor
+            if valor == 1:
+                print("Saque de 1 real realizado com sucesso")
+            else:
+                print("Saque de", valor, "reais realizado com sucesso")
         else:
-            self._saldo = saldo
+            print("Saldo insuficiente")
+    
+    def deposito(self, valor):
+        self.saldo += valor
+        if valor == 1:
+            print("Depósito de 1 real realizado com sucesso")
+        else:
+            print("Depósito de", valor, "reais realizado com sucesso")
 
+    def extrato(self):
+        print("Cliente: ",self.titular,"\nSaldo atual: ", self.saldo)
